@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Yannick Hamelryck</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Yannick Hamelryck</a>
+      <nav class="nav">
+        <a href="cv.html">CV</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="nav-button">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Projects</p>
+        <h1>My projects</h1>
+        <p class="page-text">
+          This page is for ongoing/finished technical work, labs, research, and portfolio projects. (see my Github for more)
+        </p>
+
+        <div class="feature-grid">
+          <article class="card">
+            <h2>Pass-the-Hash Research [finished]</h2>
+            <p>
+              Research and practical work around Pass-the-Hash attacks in Active Directory environments,
+              including understanding attack paths, security weaknesses, and defensive measures. Presented my research via a live demo towards a jury.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Port scanner in Python [finished]</h2>
+            <p>
+             Developed a custom port scanner in Python. 
+             The project scans a target host for open TCP ports, identifies which services may be running, and provides a structured overview of exposed network surfaces
+             The scanner was built using Python socket programming and supports scanning multiple common ports efficiently.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>AI Automation with Python [ongoing]</h2>
+            <p>
+              Currently developing a Python-based SOC automation tool that integrates the ChatGPT API with Azure log data. The project is designed to reduce manual analyst workload by taking a prompt or alert, searching relevant Azure and Microsoft security logs, identifying suspicious activity, and generating a structured summary with recommended response actions.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Cloud Security VM [finished]</h2>
+            <p>
+              Designed and deployed a secure Azure virtual machine environment by creating a dedicated virtual network (VNet) and subnet, then placing the VM inside that segmented network. Configured and tested Network Security Groups (NSGs) with both inbound and outbound rules to control traffic and reduce unnecessary exposure.
+            </p>
+          </article>
+        </div>
+
+        <div class="card writing-card">
+          <h2>[TBA]</h2>
+          <p>
+            
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
