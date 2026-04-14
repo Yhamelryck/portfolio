@@ -14,6 +14,71 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const timeline = document.getElementById("timeline-scroll");
+  const timelineRow = document.querySelector(".timeline-row");
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  if (!timeline || !timelineRow || !timelineItems.length) return;
+
+  let direction = 1;
+  let pause = false;
+
+  function updateTimelineStems() {
+    const rowRect = timelineRow.getBoundingClientRect();
+    const lineY = rowRect.top + (timelineRow.offsetHeight / 2);
+
+    timelineItems.forEach((item) => {
+      const box = item.querySelector(".timeline-box");
+      const stem = item.querySelector(".timeline-stem");
+      if (!box || !stem) return;
+
+      const itemRect = item.getBoundingClientRect();
+      const boxRect = box.getBoundingClientRect();
+
+      if (item.classList.contains("top")) {
+        const stemTop = (boxRect.bottom - itemRect.top);
+        const stemHeight = Math.max(0, lineY - boxRect.bottom);
+
+        stem.style.top = `${stemTop}px`;
+        stem.style.height = `${stemHeight}px`;
+      } else {
+        const stemTop = Math.max(0, lineY - itemRect.top);
+        const stemHeight = Math.max(0, boxRect.top - lineY);
+
+        stem.style.top = `${stemTop}px`;
+        stem.style.height = `${stemHeight}px`;
+      }
+    });
+  }
+
+  timeline.addEventListener("mouseenter", () => pause = true);
+  timeline.addEventListener("mouseleave", () => pause = false);
+
+  function animateTimeline() {
+    const maxScroll = timeline.scrollWidth - timeline.clientWidth;
+
+    if (!pause && maxScroll > 0) {
+      timeline.scrollLeft += 0.7 * direction;
+
+      if (timeline.scrollLeft >= maxScroll - 2) {
+        direction = -1;
+      } else if (timeline.scrollLeft <= 0) {
+        direction = 1;
+      }
+    }
+
+    requestAnimationFrame(animateTimeline);
+  }
+
+  updateTimelineStems();
+  window.addEventListener("resize", updateTimelineStems);
+  setTimeout(updateTimelineStems, 100);
+
+  animateTimeline();
+});
+</script>
 <body>
   <header class="site-header">
     <div class="container nav-container">
@@ -85,41 +150,111 @@
         </article>
       </div>
     </section>
+    <section class="section section-alt timeline-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Timeline</p>
+      <h2>My journey so far</h2>
+    </div>
 
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Quick overview</p>
-          <h2>What you will find on my portfolio</h2>
-        </div>
+    <div class="timeline-shell">
+      <div class="timeline-scroll" id="timeline-scroll">
+        <div class="timeline-row">
+          <div class="timeline-item bottom past">
+            <div class="timeline-box">
+              <span class="timeline-date">2019</span>
+              <h3>Learned about hacking on HTB</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
 
-        <div class="feature-grid">
-          <article class="card">
-            <h3>CV</h3>
-            <p>Download my resume in PDF format and get a compact overview of my profile, experience and certifications.</p>
-            <a href="cv.html" class="text-link">Open CV</a>
-          </article>
+          <div class="timeline-item top past large">
+            <div class="timeline-box">
+              <span class="timeline-date">2022–2025</span>
+              <h3>IT Support Helpdesk at B1TS</h3>
+              <p>Worked at B1TS while completing my systems and network degree.</p>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
 
-          <article class="card">
-            <h3>Projects</h3>
-            <p>Read what I am working on or what I have finished and which technical topics I am actively exploring.</p>
-            <a href="projects.html" class="text-link">Open Projects</a>
-          </article>
+          <div class="timeline-item bottom past">
+            <div class="timeline-box">
+              <span class="timeline-date">2025–2026</span>
+              <h3>SOC Analyst at Spotit</h3>
+              <p>6 months SOC traineeship.</p>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
 
-          <article class="card">
-            <h3>Blog</h3>
-            <p>Short write-ups about certifications and Intrests.</p>
-            <a href="blog.html" class="text-link">Open Blog</a>
-          </article>
+          <div class="timeline-item top past small">
+            <div class="timeline-box">
+              <span class="timeline-date">2025</span>
+              <h3>Passed CCNA</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
 
-          <article class="card">
-            <h3>Contact</h3>
-            <p>Send a message for professional contact or networking.</p>
-            <a href="contact.html" class="text-link">Open Contact</a>
-          </article>
+          <div class="timeline-item top past small">
+            <div class="timeline-box">
+              <span class="timeline-date">2025</span>
+              <h3>Passed Security+</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
+
+          <div class="timeline-item top past small">
+            <div class="timeline-box">
+              <span class="timeline-date">2026</span>
+              <h3>Passed SC-200</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
+
+          <div class="timeline-item bottom future small">
+            <div class="timeline-box">
+              <span class="timeline-date">Next</span>
+              <h3>Passing AZ-500</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
+          <div class="timeline-item bottom future small">
+            <div class="timeline-box">
+              <span class="timeline-date">Next</span>
+              <h3>??? job</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
+          <div class="timeline-item top future small">
+            <div class="timeline-box">
+              <span class="timeline-date">Later</span>
+              <h3>Passing SC-100</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
+
+          <div class="timeline-item bottom future">
+            <div class="timeline-box">
+              <span class="timeline-date">Future</span>
+              <h3>Cloud Security Engineer job</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
+
+          <div class="timeline-item top future goal">
+            <div class="timeline-box">
+              <span class="timeline-date">End Goal</span>
+              <h3>Cloud Security Architect job</h3>
+            </div>
+            <span class="timeline-stem" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
-    </section>
+
+      <div class="timeline-right-fade"></div>
+    </div>
+  </div>
+</section>
+    
   </main>
 </body>
 </html>

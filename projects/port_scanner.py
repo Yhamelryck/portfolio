@@ -9,12 +9,17 @@ target = input("Target IP: ")
 
 # for loop that goes through ports 1 - 1024
 for port in range(1, 1025):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # creates a new socket (IPv4 with TCP traffic)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
     sock.settimeout(0.5)
 
-    result = sock.connect_ex((target, port))  #tries to make connection to target IP with current port
+    result = sock.connect_ex((target, port))  
 
-    if result == 0: # 0 means "port is open"
-        print(f"Port {port} is open") 
+    if result == 0:
+        try:
+            service = socket.getservbyport(port, "tcp")
+        except:
+            service = "Unknown service"
+
+        print(f"Port {port} is open ({service})")
 
     sock.close() 
