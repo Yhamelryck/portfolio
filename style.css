@@ -222,6 +222,30 @@ h3 {
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
 }
+.project-status {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.project-status.finished {
+  color: #5eea9b;
+  background: rgba(94, 234, 155, 0.12);
+  border-color: rgba(94, 234, 155, 0.28);
+}
+
+.project-status.ongoing {
+  color: #d89a4d;
+  background: rgba(216, 154, 77, 0.12);
+  border-color: rgba(216, 154, 77, 0.28);
+}
 
 .intro-card {
   display: flex;
