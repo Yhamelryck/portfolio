@@ -117,3 +117,29 @@ After changing code:
 6. Check for duplicated or unused CSS.
 
 For major changes, create a plan before implementation.
+
+## Multi-agent orchestration
+
+The main Codex agent is the lead and orchestrator. It returns one consolidated final report; the user should not need to inspect individual subagent threads.
+
+For meaningful website changes:
+
+1. The main agent first understands the request and inspects the relevant repository context.
+2. It spawns the relevant read-only reviewer subagents in parallel when their work is independent.
+3. Normally use:
+   - `content_reviewer` for professional or content changes.
+   - `design_reviewer` for visual, layout, responsive, UX, or accessibility changes.
+   - `security_reviewer` when HTML, JavaScript, forms, external resources, privacy, or security-relevant behavior changes.
+4. Wait for the reviewers' findings before implementation.
+5. The main agent resolves conflicts between recommendations and defines the approved implementation scope.
+6. Delegate implementation to `site_worker`.
+7. After implementation, delegate final verification to `qa_reviewer`.
+8. If QA finds an actual defect, send that specific defect back to `site_worker`.
+9. Run `qa_reviewer` again after fixes.
+10. Finish only when QA reports no blocking findings.
+
+Review agents should return concise findings to the main agent and must not edit website source. Only `site_worker` should normally modify website source files. `qa_reviewer` should operate read-only except for temporary local validation artifacts, which it must remove before finishing.
+
+For tiny changes, such as correcting one typo, use judgment and do not unnecessarily spawn every reviewer. For large tasks, reviewers may work in parallel. Never allow multiple implementation agents to edit the same website files concurrently.
+
+Do not automatically commit or push changes.
