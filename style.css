@@ -33,5 +33,5 @@ a{color:inherit;text-decoration:none}p{margin:0 0 1rem}h1,h2,h3{margin:0;line-he
 @media(max-width:760px){html:not(.js) .nav-container{flex-wrap:wrap}html:not(.js) .nav-toggle{display:none}html:not(.js) .primary-nav{position:static;width:100%;visibility:visible;padding:0;background:transparent;border:0;box-shadow:none;opacity:1;transform:none}html:not(.js) .nav-list{display:flex;flex-wrap:wrap;justify-content:flex-start}html:not(.js) .nav-list a{width:auto}}
 .experience-list::before{left:10rem}
 .experience-item{grid-template-columns:10rem minmax(0,1fr)}
-.experience-date{overflow:visible;white-space:nowrap}
-@media(max-width:760px){.experience-list::before{left:.35rem}.experience-item{grid-template-columns:1fr}.experience-date{white-space:normal}}
+.experience-date{overflow:visible;padding-right:1.5rem;white-space:nowrap}
+@media(max-width:760px){.experience-list::before{left:.35rem}.experience-item{grid-template-columns:1fr}.experience-date{padding-right:0;white-space:normal}}
