@@ -13,7 +13,9 @@ It is Yannick Hamelryck's personal cybersecurity and cloud security portfolio.
 - HTML
 - CSS
 - Minimal JavaScript where required
-- Hosted using Cloudflare
+- Hosted on GitHub Pages
+- DNS managed through Cloudflare
+- Custom domain: yannickhamelryck.be
 - Source controlled with Git and GitHub
 
 Do not introduce React, Next.js, Vue, Angular, a database, or a backend unless explicitly requested.
