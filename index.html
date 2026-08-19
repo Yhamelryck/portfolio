@@ -1,253 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yannick Hamelryck | Cybersecurity Portfolio</title>
-  <meta
-    name="description"
-    content="Portfolio website of Yannick Hamelryck - SOC Analyst focused on security engineering, cloud security, detection engineering and continuous growth in cybersecurity."
-  />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yannick Hamelryck is a Cloud Security Engineer at NVISO working across Microsoft Azure security, cloud governance, identity, and security engineering.">
+  <meta name="theme-color" content="#070a12">
+  <title>Yannick Hamelryck | Cloud Security Engineer</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  <script src="script.js" defer></script>
 </head>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const timeline = document.getElementById("timeline-scroll");
-  const timelineRow = document.querySelector(".timeline-row");
-  const timelineItems = document.querySelectorAll(".timeline-item");
-
-  if (!timeline || !timelineRow || !timelineItems.length) return;
-
-  let direction = 1;
-  let pause = false;
-
-  function updateTimelineStems() {
-    const rowRect = timelineRow.getBoundingClientRect();
-    const lineY = rowRect.top + (timelineRow.offsetHeight / 2);
-
-    timelineItems.forEach((item) => {
-      const box = item.querySelector(".timeline-box");
-      const stem = item.querySelector(".timeline-stem");
-      if (!box || !stem) return;
-
-      const itemRect = item.getBoundingClientRect();
-      const boxRect = box.getBoundingClientRect();
-
-      if (item.classList.contains("top")) {
-        const stemTop = (boxRect.bottom - itemRect.top);
-        const stemHeight = Math.max(0, lineY - boxRect.bottom);
-
-        stem.style.top = `${stemTop}px`;
-        stem.style.height = `${stemHeight}px`;
-      } else {
-        const stemTop = Math.max(0, lineY - itemRect.top);
-        const stemHeight = Math.max(0, boxRect.top - lineY);
-
-        stem.style.top = `${stemTop}px`;
-        stem.style.height = `${stemHeight}px`;
-      }
-    });
-  }
-
-  timeline.addEventListener("mouseenter", () => pause = true);
-  timeline.addEventListener("mouseleave", () => pause = false);
-
-  function animateTimeline() {
-    const maxScroll = timeline.scrollWidth - timeline.clientWidth;
-
-    if (!pause && maxScroll > 0) {
-      timeline.scrollLeft += 0.7 * direction;
-
-      if (timeline.scrollLeft >= maxScroll - 2) {
-        direction = -1;
-      } else if (timeline.scrollLeft <= 0) {
-        direction = 1;
-      }
-    }
-
-    requestAnimationFrame(animateTimeline);
-  }
-
-  updateTimelineStems();
-  window.addEventListener("resize", updateTimelineStems);
-  setTimeout(updateTimelineStems, 100);
-
-  animateTimeline();
-});
-</script>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="logo">Yannick Hamelryck</a>
-      <nav class="nav">
-        <a href="cv.html">CV</a>
-        <a href="projects.html">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html" class="nav-button">Contact</a>
+      <a class="brand" href="index.html" aria-label="Yannick Hamelryck, home"><span class="brand-mark" aria-hidden="true">YH</span><span class="brand-name">Yannick Hamelryck</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation"><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li><li><a href="#experience">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="#certifications">Certifications</a></li><li><a href="blog.html">Blog</a></li><li><a class="nav-cta" href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container hero-layout">
         <div>
-          <p class="eyebrow">SOC Analyst • Cloud Security </p>
-          <h2>Cybersecurity enthousiast building deeper technical expertise in security operations and engineering.</h2>
-          <p class="hero-text">
-            My name is Yannick Hamelryck, a SOC Analyst with hands-on experience in SIEM, XDR and SOAR environments.
-            I enjoy investigating incidents in depth, improving detections, and continuously expanding toward
-            security engineering and cloud security.
-          </p>
-          <div class="hero-actions">
-            <a href="cv.html" class="btn btn-primary">View CV</a>
-            <a href="projects.html" class="btn btn-secondary">See Projects</a>
-          </div>
+          <div class="status-badge"><span class="status-dot" aria-hidden="true"></span>Currently employed at NVISO Security</div>
+          <h1><span class="hero-name">Yannick Hamelryck</span><span class="gradient-text">Cloud Security Engineer</span></h1>
+          <p class="hero-copy">I work across Microsoft Azure security, cloud posture, identity, governance, and security engineering—bringing a strong SOC foundation to the way I assess and secure cloud environments.</p>
+          <div class="actions"><a class="button button-primary" href="#experience">View Experience</a><a class="button button-secondary" href="projects.html">View Projects</a><a class="button button-secondary" href="contact.html">Contact Me</a></div>
         </div>
+        <aside class="hero-panel" aria-label="Professional focus overview">
+          <div class="panel-window">
+            <div class="panel-bar"><span>security-context.yml</span><span class="panel-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="panel-content">
+              <div class="signal-card"><small>current_role</small><strong class="signal-line">Cloud Security Engineer</strong></div>
+              <div class="signal-card"><small>cloud_platform</small><strong>Microsoft Azure</strong></div>
+              <div class="signal-card"><small>focus</small><strong>Posture · Identity · Governance</strong></div>
+              <div class="signal-card"><small>security_foundation</small><strong>SOC Operations &amp; Investigation</strong></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-        <div class="card intro-card">
-          <h2>About me</h2>
-          <p>
-            Experienced SOC analyst in a MSSP environment using the Microsoft Stack tools and Palo Alto Cortex XDR/XSOAR.
-          </p>
-          <p>
-            My current goal is to keep growing into a stronger security engineer profile, with a focus on
-            cloud security.
-          </p>
+    <section class="section section-tinted" id="about">
+      <div class="container">
+        <div class="section-heading reveal"><div><p class="eyebrow">Profile</p><h2>Security operations depth, applied to the cloud.</h2></div><p>I combine experience investigating security activity with a growing focus on designing, assessing, and governing secure Azure environments.</p></div>
+        <div class="bento-grid">
+          <article class="card profile-card reveal"><p class="kicker">Professional overview</p><h3>Cloud security with an operational mindset</h3><p>As a Cloud Security Engineer at NVISO, my professional focus is Microsoft Azure security. My previous SOC experience remains central to how I approach cloud risk: understand the environment, investigate what matters, and turn security findings into practical recommendations.</p></article>
+          <article class="card focus-card reveal"><p class="kicker">Current focus</p><span class="metric">Microsoft SC-500</span><p>Preparing for the exam scheduled on August 31, 2026, while continuing to deepen my knowledge of cloud security and identity.</p></article>
+          <article class="card mini-card reveal"><span class="metric">May 2026</span><p>Started as Cloud Security Engineer at NVISO.</p></article>
+          <article class="card mini-card reveal"><span class="metric">Azure</span><p>Security assessments, posture management, policy, guardrails, identity, and governance.</p></article>
+          <article class="card mini-card reveal"><span class="metric">SOC</span><p>A foundation in monitoring, investigation, Microsoft Sentinel, Defender, and KQL.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-grid">
-        <article class="card">
-          <h3>Goals</h3>
-          <p>
-            Strengthen my expertise in Azure security, detection engineering, incident handling,
-            and practical security architecture. I want to keep building technical depth while creating work
-            that is clear, useful, and operationally strong.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Interests</h3>
-          <p>
-            Cloud security, Microsoft security tooling, threat hunting, incident investigation,
-            PowerShell, Python, and writing about lessons learned from studying
-            certifications and working in cybersecurity.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Current focus</h3>
-          <p>
-            Building a stronger portfolio, documenting projects, sharing what I learn and passing the AZ-500 exam.
-          </p>
-        </article>
-      </div>
-    </section>
-    <section class="section section-alt timeline-section">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">Timeline</p>
-      <h2>My journey so far</h2>
-    </div>
-
-    <div class="timeline-shell">
-      <div class="timeline-scroll" id="timeline-scroll">
-        <div class="timeline-row">
-          <div class="timeline-item bottom past">
-            <div class="timeline-box">
-              <span class="timeline-date">2019</span>
-              <h3>Learned about hacking on HTB</h3>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-
-          <div class="timeline-item top past large">
-            <div class="timeline-box">
-              <span class="timeline-date">2022–2025</span>
-              <h3>IT Support Helpdesk at B1TS</h3>
-              <p>Worked at B1TS while completing my systems and network degree.</p>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-
-          <div class="timeline-item bottom past">
-            <div class="timeline-box">
-              <span class="timeline-date">2025–2026</span>
-              <h3>SOC Analyst at Spotit</h3>
-              <p>6 months SOC traineeship.</p>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-
-          <div class="timeline-item top past small">
-            <div class="timeline-box">
-              <span class="timeline-date">2025</span>
-              <h3>Passed CCNA</h3>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-
-          <div class="timeline-item top past small">
-            <div class="timeline-box">
-              <span class="timeline-date">2025</span>
-              <h3>Passed Security+</h3>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-
-          <div class="timeline-item top past small">
-            <div class="timeline-box">
-              <span class="timeline-date">2026</span>
-              <h3>Passed SC-200</h3>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-
-          <div class="timeline-item bottom past small">
-            <div class="timeline-box">
-              <span class="timeline-date">2026</span>
-              <h3>passed AZ-104</h3>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-          <div class="timeline-item bottom past small">
-            <div class="timeline-box">
-              <span class="timeline-date">2026 - present</span>
-              <h3>Cloud security consultant at NVISO</h3>
-              
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-          <div class="timeline-item top future small">
-            <div class="timeline-box">
-              <span class="timeline-date">Later</span>
-              <h3>Passing SC-100</h3>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
-
-          <div class="timeline-item top future goal">
-            <div class="timeline-box">
-              <span class="timeline-date">End Goal</span>
-              <h3>Cloud Security Architect job</h3>
-            </div>
-            <span class="timeline-stem" aria-hidden="true"></span>
-          </div>
+    <section class="section" id="expertise">
+      <div class="container">
+        <div class="section-heading reveal"><div><p class="eyebrow">Expertise</p><h2>Technology in context.</h2></div><p>Capabilities grouped around the security outcomes they support—not a wall of disconnected tools.</p></div>
+        <div class="skill-grid">
+          <article class="card skill-card reveal"><span class="skill-icon" aria-hidden="true">01</span><h3>Cloud Security</h3><div class="tags"><span class="tag">Microsoft Azure</span><span class="tag">Defender for Cloud</span><span class="tag">Azure Policy</span><span class="tag">CSPM</span><span class="tag">Security Guardrails</span><span class="tag">Cloud Governance</span></div></article>
+          <article class="card skill-card reveal"><span class="skill-icon" aria-hidden="true">02</span><h3>Microsoft Security</h3><div class="tags"><span class="tag">Defender XDR</span><span class="tag">Defender for Endpoint</span><span class="tag">Microsoft Sentinel</span><span class="tag">Microsoft Entra ID</span><span class="tag">Identity &amp; Access</span></div></article>
+          <article class="card skill-card reveal"><span class="skill-icon" aria-hidden="true">03</span><h3>SOC &amp; Detection</h3><div class="tags"><span class="tag">Security Monitoring</span><span class="tag">Incident Investigation</span><span class="tag">Alert Investigation</span><span class="tag">Threat Hunting</span><span class="tag">KQL</span><span class="tag">XQL</span></div></article>
+          <article class="card skill-card reveal"><span class="skill-icon" aria-hidden="true">04</span><h3>Infrastructure &amp; Automation</h3><div class="tags"><span class="tag">Terraform</span><span class="tag">PowerShell</span><span class="tag">Python</span><span class="tag">Networking</span><span class="tag">Security Frameworks</span></div></article>
         </div>
       </div>
+    </section>
 
-      <div class="timeline-right-fade"></div>
-    </div>
-  </div>
-</section>
-    
+    <section class="section section-tinted" id="experience">
+      <div class="container">
+        <div class="section-heading reveal"><div><p class="eyebrow">Experience</p><h2>From security operations to cloud engineering.</h2></div><p>My SOC background strengthens the investigation-led, practical perspective I bring to Cloud Security.</p></div>
+        <div class="experience-list">
+          <article class="experience-item current reveal"><time class="experience-date" datetime="2026-05">May 2026 — Present</time><div class="experience-content"><h3>Cloud Security Engineer</h3><p class="experience-company">NVISO</p><p>Working across Microsoft Azure security, Defender for Cloud, Defender XDR, cloud security posture management, Azure security assessments, Azure Policy, security guardrails, identity and access security, cloud governance, security recommendations, and Terraform security considerations.</p></div></article>
+          <article class="experience-item reveal"><span class="experience-date">2025 — 2026</span><div class="experience-content"><h3>SOC Analyst</h3><p class="experience-company">Spotit</p><p>Six-month SOC traineeship focused on security monitoring, incident and alert investigation, Microsoft Defender, Microsoft Sentinel, KQL, and security operations in an MSSP environment.</p></div></article>
+          <article class="experience-item reveal"><span class="experience-date">2022 — 2025</span><div class="experience-content"><h3>IT Support Helpdesk</h3><p class="experience-company">B1TS</p><p>Worked at B1TS while completing my systems and networks degree.</p></div></article>
+          <article class="experience-item reveal"><time class="experience-date" datetime="2019">2019</time><div class="experience-content"><h3>First steps in cybersecurity</h3><p class="experience-company">Hack The Box</p><p>Discovered hands-on security learning through Hack The Box, beginning the path toward offensive and defensive security.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal"><div><p class="eyebrow">Selected projects</p><h2>Cloud security, made tangible.</h2></div><p>Practical labs and technical work that support my focus on secure Azure environments.</p></div>
+        <div class="project-grid">
+          <article class="card project-card featured reveal"><div class="project-topline"><span class="project-number">PROJECT / 01</span><span class="project-status">Finished</span></div><div class="project-body"><h3>Cloud Security VM</h3><p>A segmented Azure virtual machine environment with dedicated networking and tested Network Security Group rules.</p><div class="tags"><span class="tag">Azure</span><span class="tag">VNet</span><span class="tag">NSG</span></div><a class="project-link" href="projects.html#cloud-security-vm">Explore project</a></div></article>
+          <article class="card project-card featured reveal"><div class="project-topline"><span class="project-number">PROJECT / 02</span><span class="project-status">Completed</span></div><div class="project-body"><h3>Azure Security Assessment</h3><p>A technical assessment completed during the NVISO interview process, analyzing supplied screenshots of an Azure environment to identify misconfigurations, explain security risks, provide recommendations, and design an improved architecture diagram.</p><div class="tags"><span class="tag">Azure</span><span class="tag">Cloud Security</span><span class="tag">Security Assessment</span><span class="tag">Architecture</span></div><a class="project-link" href="projects.html#azure-security-assessment">Explore project</a></div></article>
+        </div>
+        <div class="actions"><a class="button button-secondary" href="projects.html">View all projects</a></div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="certifications">
+      <div class="container">
+        <div class="section-heading reveal"><div><p class="eyebrow">Certifications</p><h2>Validated foundations. Clear next step.</h2></div><p>Earned credentials across security operations, Azure administration, security fundamentals, and networking.</p></div>
+        <div class="cert-grid">
+          <article class="card cert-card reveal"><span class="cert-code">COMPTIA</span><h3>Security+</h3><small>Earned · 2025</small></article>
+          <article class="card cert-card reveal"><span class="cert-code">CISCO</span><h3>CCNA</h3><small>Earned · 2025</small></article>
+          <article class="card cert-card reveal"><span class="cert-code">MICROSOFT</span><h3>SC-200</h3><small>Earned · 2026</small></article>
+          <article class="card cert-card reveal"><span class="cert-code">MICROSOFT</span><h3>AZ-104</h3><small>Earned · 2026</small></article>
+          <article class="card cert-card cert-focus reveal"><span class="cert-code">CURRENT FOCUS</span><h3>Microsoft SC-500</h3><small>Exam scheduled for August 31, 2026</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="writing">
+      <div class="container"><div class="section-heading reveal"><div><p class="eyebrow">Writing</p><h2>Notes from the learning process.</h2></div><p>Certification preparation and the experiences that shaped my path into cybersecurity.</p></div>
+        <div class="article-grid">
+          <article class="card article-card reveal"><span class="meta">CERTIFICATION NOTES</span><h3>How I prepared for SC-200</h3><p>Resources, hands-on practice, and lessons from studying Microsoft security operations.</p><a class="text-link" href="blog.html#sc-200">Read notes</a></article>
+          <article class="card article-card reveal"><span class="meta">CAREER STORY</span><h3>How I got into cybersecurity</h3><p>From Hack The Box and Active Directory research to SOC work and Cloud Security.</p><a class="text-link" href="blog.html#career-story">Read story</a></article>
+          <article class="card article-card reveal"><span class="meta">CERTIFICATION NOTES</span><h3>How I prepared for CCNA</h3><p>The networking foundation that continues to support security work.</p><a class="text-link" href="blog.html#ccna">Read notes</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section"><div class="container"><div class="cta-panel reveal"><div><p class="eyebrow">Contact</p><h2>Let’s talk cloud security.</h2><p>Have a professional question or want to connect? Send me a message.</p></div><a class="button button-primary" href="contact.html">Contact Me</a></div></div></section>
   </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><div><a class="footer-brand" href="index.html">Yannick Hamelryck</a><p>Cloud Security Engineer</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="cv.html">CV</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav><p class="ai-note">This website has been modified and secured via AI agents ;)</p></div></footer>
 </body>
 </html>

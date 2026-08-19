@@ -1,110 +1,13 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects | Yannick Hamelryck</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container nav-container">
-        <a href="index.html" class="logo">Yannick Hamelryck</a>
-        <nav class="nav">
-          <a href="cv.html">CV</a>
-          <a href="projects.html" class="active">Projects</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html" class="nav-button">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="page-main">
-      <section class="page-hero">
-        <div class="container">
-          <p class="eyebrow">Projects</p>
-          <h1>My projects</h1>
-          <p class="page-text">
-            This page is for ongoing/finished technical work, labs, research,
-            and portfolio projects.
-          </p>
-
-          <div class="feature-grid">
-            <article class="card">
-              <span class="project-status finished">Finished</span>
-              <h2>Pass-the-Hash Research</h2>
-              <p>
-                Research and practical work around Pass-the-Hash attacks in
-                Active Directory environments, including understanding attack
-                paths, security weaknesses, and defensive measures. Presented my
-                research via a live demo towards a jury.
-              </p>
-            </article>
-
-            <article class="card">
-              <span class="project-status finished">Finished</span>
-              <h2>Port scanner in Python</h2>
-              <p>
-                Developed a custom port scanner in Python. The project scans a
-                target host for open TCP ports, identifies which services may be
-                running, and provides a structured overview of exposed network
-                surfaces The scanner was built using Python socket programming
-                and supports scanning multiple common ports efficiently.
-              </p>
-              <a
-                href="projects/port_scanner.py"
-                class="btn btn-primary"
-                download
-              >
-                Download Python Script
-              </a>
-            </article>
-
-            <article class="card">
-              <span class="project-status finished">Finished</span>
-              <h2>Cloud Security VM</h2>
-
-              <p>
-                Designed and deployed a secure Azure virtual machine environment
-                by creating a dedicated virtual network (VNet) and subnet, then
-                placing the VM inside that segmented network. Configured and
-                tested Network Security Groups (NSGs) with both inbound and
-                outbound rules to control traffic and reduce unnecessary
-                exposure.
-              </p>
-            </article>
-            <article class="card">
-              <span class="project-status finished">Finished</span>
-              <h2>Azure Cost Dashboard</h2>
-              <p>
-                Developing an Azure cost visibility dashboard to monitor cloud
-                spending across services and resource groups. The project uses
-                Azure Cost Management, budgets, alerts, and dashboard to
-                provide spending insights, detect unusual costs, and generate
-                alert mails.
-              </p>
-              <a
-                href="https://github.com/Yhamelryck/azure-cost-visibility-dashboard"
-                class="btn btn-primary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on GitHub
-              </a>
-            </article>
-            <article class="card">
-              <span class="project-status ongoing">ongoing</span>
-              <h2>Identity with RBAC Lab</h2>
-              <p>
-                Designing and securing an Azure environment by creating multiple users, groups and custom role assignments in Microsoft Entra ID using Azure RBAC. Configuring least-privilege access across resource groups and testing how different users could access or modify Azure resources. 
-              </p>
-          </div>
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Cloud security, Azure, identity, networking, and security research projects by Yannick Hamelryck."><meta name="theme-color" content="#070a12"><title>Projects | Yannick Hamelryck</title><link rel="stylesheet" href="style.css"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><script src="script.js" defer></script></head><body>
+<a class="skip-link" href="#main-content">Skip to content</a><header class="site-header"><div class="container nav-container"><a class="brand" href="index.html" aria-label="Yannick Hamelryck, home"><span class="brand-mark" aria-hidden="true">YH</span><span class="brand-name">Yannick Hamelryck</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation"><span></span></button><nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation"><ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="projects.html" aria-current="page">Projects</a></li><li><a href="index.html#certifications">Certifications</a></li><li><a href="blog.html">Blog</a></li><li><a class="nav-cta" href="contact.html">Contact</a></li></ul></nav></div></header>
+<main id="main-content"><header class="page-hero"><div class="container"><p class="eyebrow">Projects</p><h1>Building security knowledge through practice.</h1><p class="page-intro">Cloud labs, security research, and technical projects that turn concepts into working environments and tangible results.</p><nav class="subnav" aria-label="Project categories"><a href="#cloud-projects">Cloud Security</a><a href="#security-projects">Security &amp; Networking</a></nav></div></header>
+<section class="section" id="cloud-projects"><div class="container"><div class="section-heading reveal"><div><p class="eyebrow">Cloud Security</p><h2>Azure-focused work.</h2></div><p>Projects centered on network security, identity, governance, and cloud visibility.</p></div><div class="project-grid">
+<article class="card project-card featured reveal" id="cloud-security-vm"><div class="project-topline"><span class="project-number">CLOUD / 01</span><span class="project-status">Finished</span></div><div class="project-body"><h3>Cloud Security VM</h3><p>Designed and deployed a secure Azure virtual machine environment using a dedicated virtual network and subnet. Configured and tested inbound and outbound Network Security Group rules to control traffic and reduce unnecessary exposure.</p><div class="tags"><span class="tag">Microsoft Azure</span><span class="tag">VNet</span><span class="tag">NSG</span><span class="tag">Network Security</span></div></div></article>
+<article class="card project-card featured reveal" id="azure-security-assessment"><div class="project-topline"><span class="project-number">CLOUD / 02</span><span class="project-status">Completed</span></div><div class="project-body"><h3>Azure Security Assessment</h3><p>A technical security assessment completed as part of the NVISO interview process. Using supplied screenshots of an existing Microsoft Azure environment, I analyzed the environment, identified security misconfigurations, explained the associated risks, provided security recommendations, reviewed the overall architecture, and created a new architecture diagram representing an improved environment.</p><div class="tags"><span class="tag">Azure</span><span class="tag">Cloud Security</span><span class="tag">Security Assessment</span><span class="tag">Architecture</span></div></div></article>
+<article class="card project-card reveal"><div class="project-topline"><span class="project-number">CLOUD / 03</span><span class="project-status">Finished</span></div><div class="project-body"><h3>Azure Cost Dashboard</h3><p>An Azure cost visibility dashboard using Cost Management, budgets, alerts, and dashboards to monitor spending across services and resource groups, identify unusual costs, and generate email alerts.</p><div class="tags"><span class="tag">Azure</span><span class="tag">Cost Management</span><span class="tag">Budgets</span><span class="tag">Alerts</span></div><a class="project-link" href="https://github.com/Yhamelryck/azure-cost-visibility-dashboard" target="_blank" rel="noopener noreferrer">View on GitHub</a></div></article>
+</div></div></section>
+<section class="section section-tinted" id="security-projects"><div class="container"><div class="section-heading reveal"><div><p class="eyebrow">Security &amp; Networking</p><h2>Understanding systems from both sides.</h2></div><p>Research and tooling grounded in Active Directory, attack paths, defensive measures, and network fundamentals.</p></div><div class="project-grid">
+<article class="card project-card reveal"><div class="project-topline"><span class="project-number">SECURITY / 01</span><span class="project-status">Finished</span></div><div class="project-body"><h3>Pass-the-Hash Research</h3><p>Research and practical work around Pass-the-Hash attacks in Active Directory environments, including attack paths, security weaknesses, and defensive measures. Presented through a live demonstration to a jury.</p><div class="tags"><span class="tag">Active Directory</span><span class="tag">Attack Paths</span><span class="tag">Defensive Security</span></div></div></article>
+<article class="card project-card reveal"><div class="project-topline"><span class="project-number">NETWORK / 02</span><span class="project-status">Finished</span></div><div class="project-body"><h3>Port Scanner in Python</h3><p>A custom Python tool that scans a target host for open TCP ports, identifies likely services, and provides an overview of exposed network services using Python socket programming.</p><div class="tags"><span class="tag">Python</span><span class="tag">TCP</span><span class="tag">Sockets</span></div><a class="project-link" href="projects/port_scanner.py" download>Download Python script</a></div></article>
+</div></div></section></main>
+<footer class="site-footer"><div class="container footer-grid"><div><a class="footer-brand" href="index.html">Yannick Hamelryck</a><p>Cloud Security Engineer</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="cv.html">CV</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav><p class="ai-note">This website has been modified and secured via AI agents ;)</p></div></footer></body></html>
